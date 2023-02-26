@@ -1,0 +1,16 @@
+-Spark wont be running on a single machine
+-It will run on a cluster on a service like AWS
+-most services are Linux based
+
+4 options (all Linux based):
+    1. Ubuntu + Spark + Python on VirtualBox
+        -setup VirtualBox on local computer, install Ubuntu, Spark and Python in this virtual machine
+    2. Amazon EC2 with Python and Spark
+        -free micro instance on AWS EC2 which we can connect to online using SSH
+    3. Databricks Notebook System
+        -freely hosted Notebook platform that supports a variety of SPARK APIs
+    4. AWS EMR Notebook (Not free)
+        -AWS Elastic MapReduce
+        -quickly setup clusters
+        
+

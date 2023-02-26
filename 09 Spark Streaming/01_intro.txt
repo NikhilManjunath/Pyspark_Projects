@@ -1,0 +1,8 @@
+Spark Streaming
+-extension of Spark API to process live data streams
+-data can be ingested from many sources (Kafka, Flume, Kinesis) 
+-and data can be processed using complex algorithms expressed with high level functions like map, reduce, join and window
+
+(Kafka/Flume/HDFS/S3/Kinesis/Twitter) -> Spark Streaming -> (HDFS/Databases/Dashboards)
+
+Live I/P data streams -> Spark Streaming -> divdes into batches -> processed by Spark Engine-> generate final stream of results in batches

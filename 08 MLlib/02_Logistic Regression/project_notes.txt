@@ -1,0 +1,2 @@
+-Predict which customers will churn (stop buying the service) based on features
+-account manager is randomly assigned

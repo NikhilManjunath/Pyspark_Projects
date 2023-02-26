@@ -1,0 +1,15 @@
+Tokenization
+-> taking text and breaking it into individual words
+-> col (pyspark.sql.functions.col) - allows us to call the columns
+-> udf (user defined function)
+
+Stop Words Remover
+-> remove words that are very common
+
+N-gram
+-> seq of 'n' tokens(words) for some integer 'n'
+-> eg: if n=2, it returns pairs of consecutive words
+-> useful when you want relationships between words (which words appear together very often)
+
+Count Vectorizer
+->convert collection of text docs into vectors of word counts

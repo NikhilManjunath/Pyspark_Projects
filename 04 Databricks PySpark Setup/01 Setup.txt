@@ -1,0 +1,27 @@
+Databricks
+-provides clusters that run on top of AWS
+-also has notebook system already setup
+-has its own storage format - DBFS
+
+Steps:
+1. Go to databricks website -> try databricks -> Choose community edition (not the 14 day free trial) -> Complete signup
+2. Create -> Cluster
+3. Choose Cluster Name, Runtime Version = Scala 2.12, Spark 3.2.1 -> Create Cluster
+    -Cluster is terminated after 120 minutes of inactivity. In community edition it cannot be started again
+    -Will habe to delete the cluster and create a new cluster again
+3. Create -> Notebook -> give name, choose python as language and choose the cluster you created
+4. Opens notebook similar to Jupyter Notebook -> import pyspark to just see if it is working
+
+Uploading Data to Databricks and creating a dataframe:
+1. In the side nav bar -> Data -> Tables -> Create Table
+2. Different data sources can be chosen
+3. Choose Upload File -> Upload mydata.csv
+4. Select Create Table with UI -> Select cluster
+5. Give table name, file type and delimiter
+6. If first row is header, select the option. Change the datatypes of columns if necessary
+7. Create Table
+
+Accessing data in the notebooks: Will be using sql
+1. df = sqlContext.sql("SELECT * from mytable")
+2. To print the data:
+    print(df.show())

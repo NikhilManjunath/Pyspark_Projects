@@ -1,0 +1,10 @@
+MLlib
+-> Spark Library for ML
+-> for Unsupervised and Supervised ML learning tasks
+-> Need to format data such that it eventually has:
+    - 2 columns (Features, Labels) for Supervised
+    - 1 column (Features) for Unsupervised
+-> requires more data processing work than other ML Libraries
+-> but exact same syntax will work with distributed data
+
+Good idea to go through the MLlib documentation available on PySpark website

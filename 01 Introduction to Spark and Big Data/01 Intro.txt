@@ -1,0 +1,56 @@
+PySpark - Spark + Python API
+
+what to do when there is large amount of data?
+1. Using a Database (ex-SQL), to move storage onto hard drive instead of RAM
+2. Use a distributed system to distribute data across multiple machines - SPARK
+
+Big Data
+-large data that cannot be stored on RAM
+
+Local Systems 
+- limited computation resources (core, storage, RAM)
+
+Distributed Systems 
+- combine weaker machines to have desired cores, storage, RAM
+- easier to scale by adding more machines
+-include FAULT TOLERANCE - one machine fails, the whole NW can still go on
+
+HADOOP
+-distribute very large files across multiple machines
+-uses Hadoop Distributed File System (HDFS)
+-HDFS:
+    -allows user to work with large datasets
+    -duplicates blocks of data for fault tolerance
+    -uses MapReduce - allows computations on the data
+    -have a main node that controls the worker nodes
+    -uses blocks of data of default size 128mb (smaller so more parallelization)
+    -each block is replicated 3 times and distributed to support fault tolerance
+-MapReduce:
+    -splits a computational task
+    -consists of a Job Tracker and multiple Task Trackers
+    -Job Tracker send code to run on task Trackers
+    -Task Trackers allocate CPU and memory for tasks and monitor the tasks on the worker nodes.
+
+SPARK
+-flexible alternative to MapReduce
+-can use data stored in variety of formats (Cassandra, AWS S3, HDFS, etc)
+-MapReduce requires files to be stored in HDFS, Spark does not
+-100x faster than MapReduce. How?
+    -MapReduce writes most data to disk after each map and reduce operation
+    -Spark keeps most data in memory after transformation. It can spill over to disk if the memory is filled
+-Spark RDDs:
+    -Resilient Distributed Dataset - 4 main features: 
+        -Distributed Collection of Data
+        -Falut Tolerant
+        -Parallel operation
+        -Ability to use many data sources
+    -RDDS immutable, lazily evaluated and cacheable
+    -2 types of Spark operations:
+        -1. Transformations - instructions to follow
+        -2. Actions - perform what the instructions says to do and return something back
+        -this is carried over to syntax as well. A lot of Transformations but wont return anything unless an action is called
+        -this is to make sure we do not calculate all transformations. Just the required ones
+-Spark DataFrames
+    -standard way to use SPARK ML abilities
+
+

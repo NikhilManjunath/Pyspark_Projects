@@ -1,0 +1,21 @@
+-Will setup Python, Spark and Jupyter Notebook on AWS EC2
+
+Steps:
+1. Create a free account on AWS:
+    1. Sign up with email address to create a free account on AWS
+    2. Fill out profile details (Contact Info, Billing Info, ID Verification, Choose Free Support Plan)
+
+2. EC2 Instance setup
+    -resizeable compute capacity in the cloud
+    -similar to VM that can be accessed through the internet
+    Steps:
+        1. Create EC2 instance on AWS
+        2. Use SSH to connect to EC2 over internet (to remotely connect to command line of our VM on Amazon EC2)
+        3. Set-up Spark and Jupyter on EC2 Instance
+
+
+Creating EC2 Instance on AWS:
+1. Login to AWS -> sign in to the console
+2. Search for EC2 in the search bar
+3. Click on Launch Instance -> Choose Ubuntu Server -> Choose instance type micro (free tier), Number of instance = 1
+4. Create key-pair login

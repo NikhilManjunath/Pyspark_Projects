@@ -1,0 +1,37 @@
+Examples:
+-Clustering news articles
+-sugesting similar books
+-grouping legal docs
+-spam email detection
+
+Basic Process:
+1. Compile all docs into a Corpus
+2. Featurize the words to numerics
+3. Compare features of documents
+
+TF-IDF (Term Frequency - Inverse Document Frequency)
+Ex: 
+    Doc1 contains 'Blue House'
+    Doc2 contains 'Red House'
+
+    Featurize based on word count:
+    'Blue House' -> (red,blue,house) -> (0,1,1)
+    'Red House' -> (red,blue,house) -> (1,0,1)
+
+    Hence, each doc represented as a vector of word counts
+    Hence, we have vectors in n-dim space
+    We compare vectors with cosine similarity
+    Hence, we get similarity between the docs
+
+    Term Frequency - importance of a term within the doc
+    TF(x,y) - count of occurences of term x in doc y
+
+    Inverse Document Frequency - importance of term in the Corpus
+    IDF(t) = log(N/dfx) 
+        ->N = total # of docs
+        ->dfx = # of docs with the term
+
+    Finally,
+    W(x,y) = TF(x,y)*IDF(x)
+
+

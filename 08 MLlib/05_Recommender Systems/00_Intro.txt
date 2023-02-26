@@ -1,0 +1,14 @@
+2 types:
+    - Content Based 
+        -> focuses on attributes of items and suggests based on similarity between items
+    - Collaborative Filtering (CF) 
+        -> recommend based on users attitude on items
+        -> more common, gives better results, easier to understand
+
+->does feature learning on its own (identifies which features to use)
+
+->aim to match user-item in an association matrix
+->spark.ml supports model based Collaborative Filtering
+    -> users and products described by small set of latent factors used to predict
+    -> uses ALS (Alternative Least Squares) to learn the latent factors
+    -> data needs to be in a specific format to work

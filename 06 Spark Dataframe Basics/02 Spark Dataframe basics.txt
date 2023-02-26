@@ -1,0 +1,67 @@
+-Run 02_SparkDF_basics.ipynb for demo
+
+1. In order to work with Spark dataframes, we need to first start a Spark Session on Jupyter NB:
+        from pyspark.sql import SparkSession
+    Start spark session by creating a variable:
+        spark = SparkSession.builder.appName('Basics').getOrCreate()
+        #appname needs to be chosen by you (here it is called Basics)
+
+
+2. To import files to Databricks workspace without creating tables:
+    Data -> Create Table -> Upload File -> Once uploaded it will show that file is uploaded to a particular location
+    (Ex: File uploaded to /FileStore/tables/people.json)
+    
+    while importing this file in NB, just specify this path:
+        df = spark.read.json('/FileStore/tables/people.json')
+
+    to see the dataframe:
+        df.show()
+
+3. Checking different info about the df:
+    1. To check the schema of the df:
+        df.printSchema()
+        ->returns names of the columns, the datatype detected by Spark, and if columns can handle null values
+        ->sometimes the datatype detected might be wrong. In this case we will do step 4
+    
+    2. To return just column names:
+        df.columns
+    
+    3. To describe the df:
+        df.describe().show()
+        -> returns the statistical summary
+
+4. Changing the schema 
+    -when data is not that good and we need to specify datatype
+    1. Import typetools
+
+    2. Create a schema of list of Structure fields
+        -i,e: for each column in the data specify column name, datatype, whether or not field can be null (True/False)
+
+        Create a variable for final structure where you pass the schema created in prev step into StructType
+
+    3. Read the json file by specifying schema:
+            df = spark.read.json('/FileStore/tables/people.json',schema=final_struc)
+
+5. Grabbing data
+    df['age] -> just returns the column object
+    df.select('age') -> returns a df of the column which can be used to see the results using .show()
+
+    selecting rows:
+    df.head(2) -> gets the first 2 rows. It returns a row object
+
+6. Creating new columns:
+    Using with column:
+    df.withColumn('double_age',df['age']*2) 
+    -> returns a new df with columns: name, age, double_age
+    -> not an inplace operation. Will have to save to a new variable
+
+    #Renaming the column
+    df.withColumnRenamed(existing='your_existing_column_name',new='your_new_column_name')
+
+7. Using SQL to interact with df:
+    **First need to register the df as temp sql view:
+        df.createOrReplaceTempView('temp_view_name')
+
+    Then we can use SQL:
+        new_results = spark.sql("SELECT * FROM people WHERE age=19")    -> people is temp_view_name here
+        new_results.show()

@@ -1,0 +1,14 @@
+-> Unsupervised algorithm
+-> Tries to convert unlabeled data into clusters
+
+Steps:
+-> Choose number of clusters (from domain knowledge/guess)
+-> Randomly assign each point to a cluster
+-> Until no change in clusters, repeat:
+    -> compute cluster centroid for each cluster by taking mean of all points in the cluster
+    -> reassign each point again to a new cluster based on the nearest centroid
+
+Choosing K value:
+-> compute sum of squared error (SSE) for some values of k (2,4,6,8,..)
+-> plot k vs SSE (error decreases with larger k)
+-> choose k at which SSE decreases abruptly

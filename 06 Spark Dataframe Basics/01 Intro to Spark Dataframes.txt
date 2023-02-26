@@ -1,0 +1,6 @@
+Spark Dataframes
+    -hold data in column and row format
+    -each column = some feature/variable
+    -each row = individual data point
+    -can use dfs to apply various transformations on the data
+    -at the end of transformations, we can either show or collect results to display or for some final processing

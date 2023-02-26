@@ -1,0 +1,2 @@
+Spam Detection
+-dataset: text msgs from a study in Singapore + spam msgs from a UK reporting site
