@@ -1,4 +1,4 @@
-# Pyspark_Projects
+# Pyspark Projects
 
 This is a Github repo to learn how to use Spark with Python for Machine Learning.
 
